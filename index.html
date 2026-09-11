@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Strike TRX - Call of Duty Mobile</title>
+    <!-- استفاده از فونت وزیرمتن برای ظاهر زیبا و مدرن فارسی -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        /* --- متغیرهای رنگی (Call of Duty Palette) --- */
+        :root {
+            --cod-yellow: #FFB800;
+            --cod-yellow-bright: #FFCC00;
+            --bg-dark: #121212;
+            --card-bg: #1E1E1E;
+            --border-color: #2A2A2A;
+            --text-light: #E0E0E0;
+            --text-muted: #A0A0A0;
+        }
+
+        /* --- تنظیمات پایه --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-bottom: 90px; /* برای نرفتن محتوا زیر دکمه‌های شناور */
+            background-image: radial-gradient(rgba(255, 184, 0, 0.05) 1px, transparent 0);
+            background-size: 24px 24px; /* الگوی شبکه‌ای ملایم گیمینگ */
+        }
+
+        /* --- هدر و بالای صفحه --- */
+        header {
+            background-color: rgba(30, 30, 30, 0.95);
+            border-bottom: 2px solid var(--cod-yellow);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* دکمه ورود / ثبت نام (سمت راست - RTL) */
+        .auth-btn {
+            background-color: var(--cod-yellow);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 2px; /* دکمه مستطیلی */
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 184, 0, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .auth-btn:hover {
+            background-color: var(--cod-yellow-bright);
+            box-shadow: 0 0 15px rgba(255, 184, 0, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* عنوان هدر (وسط) */
+        .site-title {
+            color: var(--cod-yellow);
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* عنصر خالی برای برقراری تعادل در هدر */
+        .header-spacer {
+            width: 100px;
+        }
+
+        /* --- کانتینر اصلی محتوا --- */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        /* --- بخش معرفی نامه --- */
+        .intro-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-right: 4px solid var(--cod-yellow);
+            padding: 25px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .intro-box h2 {
+            color: var(--cod-yellow);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- بخش شبکه‌های اجتماعی --- */
+        .social-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .social-box h3 {
+            color: var(--cod-yellow);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-box h3::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 2px;
+            background: var(--cod-yellow);
+            margin: 5px auto 0;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background-color: transparent;
+            color: var(--cod-yellow);
+            border: 2px solid var(--cod-yellow);
+            padding: 10px 24px;
+            border-radius: 2px; /* مستطیلی */
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+        }
+
+        .social-btn:hover {
+            background-color: var(--cod-yellow);
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 184, 0, 0.4);
+        }
+
+        /* --- کارت‌های عکس و متن --- */
+        .media-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cod-yellow);
+        }
+
+        /* جایگاه عکس */
+        .image-placeholder {
+            width: 100%;
+            height: 240px;
+            background-color: #1A1A1A;
+            border-bottom: 2px solid var(--cod-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cod-yellow);
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            background-image: linear-gradient(45deg, #151515 25%, transparent 25%), 
+                              linear-gradient(-45deg, #151515 25%, transparent 25%), 
+                              linear-gradient(45deg, transparent 75%, #151515 75%), 
+                              linear-gradient(-45deg, transparent 75%, #151515 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        /* متن چسبیده زیر عکس */
+        .card-text {
+            padding: 20px;
+            color: var(--text-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- دکمه‌های شناور (Floating Buttons) --- */
+        .floating-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* سمت چپ پایین صفحه */
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 9999;
+        }
+
+        .floating-btn {
+            background-color: var(--card-bg);
+            color: var(--cod-yellow);
+            border: 2px solid var(--cod-yellow);
+            padding: 12px 25px;
+            border-radius: 50px; /* شکل بیضی کامل */
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 184, 0, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+
+        .floating-btn:hover {
+            background-color: var(--cod-yellow);
+            color: #000;
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* --- واکنش‌گرایی برای موبایل (Responsive) --- */
+        @media (max-width: 600px) {
+            header {
+                padding: 12px 15px;
+            }
+
+            .site-title {
+                font-size: 1.1rem;
+            }
+
+            .auth-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .header-spacer {
+                display: none; /* حذف فاصله در موبایل برای فضای بیشتر */
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+
+            .social-btn {
+                max-width: 100%;
+            }
+
+            .floating-container {
+                bottom: 15px;
+                left: 15px;
+            }
+
+            .floating-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- هدر صفحه -->
+    <header>
+        <button class="auth-btn">ورود / ثبت نام</button>
+        <h1 class="site-title">King Strike TRX</h1>
+        <div class="header-spacer"></div>
+    </header>
+
+    <!-- کانتینر محتوای اصلی -->
+    <div class="container">
+
+        <!-- بخش معرفی نامه -->
+        <div class="intro-box">
+            <h2>درباره ما</h2>
+            <p>جای معرفی نامه شما</p>
+        </div>
+
+        <!-- بخش شبکه‌های اجتماعی -->
+        <div class="social-box">
+            <h3>شبکه های اجتماعی</h3>
+            <div class="social-buttons">
+                <a href="#" class="social-btn">کانال یوتیوب</a>
+                <a href="#" class="social-btn">کانال روبیکا</a>
+                <a href="#" class="social-btn">کانال تلگرام</a>
+            </div>
+        </div>
+
+        <!-- کارت‌های عکس و متن -->
+        
+        <!-- عکس شماره ۱ -->
+        <div class="media-card">
+            <div class="image-placeholder">عکس سیزن ۱</div>
+            <div class="card-text">
+                متن شما........
+            </div>
+        </div>
+
+        <!-- عکس شماره ۲ -->
+        <div class="media-card">
+            <div class="image-placeholder">عکس سیزن ۲</div>
+            <div class="card-text">
+                متن شما........
+            </div>
+        </div>
+
+        <!-- عکس شماره ۳ -->
+        <div class="media-card">
+            <div class="image-placeholder">عکس سیزن ۳</div>
+            <div class="card-text">
+                متن شما........
+            </div>
+        </div>
+
+        <!-- عکس شماره ۴ -->
+        <div class="media-card">
+            <div class="image-placeholder">عکس سیزن ۴</div>
+            <div class="card-text">
+                متن شما........
+            </div>
+        </div>
+
+    </div>
+
+    <!-- دکمه‌های شناور سمت چپ پایین -->
+    <div class="floating-container">
+        <button class="floating-btn">اخبار</button>
+        <button class="floating-btn">نظرسنجی</button>
+    </div>
+
+</body>
+</html>

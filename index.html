@@ -33,7 +33,7 @@
             line-height: 1.6;
             padding-bottom: 90px; /* برای نرفتن محتوا زیر دکمه‌های شناور */
             background-image: radial-gradient(rgba(255, 184, 0, 0.05) 1px, transparent 0);
-            background-size: 24px 24px; /* الگوی شبکه‌ای ملایم گیمینگ */
+            background-size: 24px 24px;
         }
 
         /* --- هدر و بالای صفحه --- */
@@ -57,7 +57,7 @@
             font-weight: bold;
             border: none;
             padding: 10px 20px;
-            border-radius: 2px; /* دکمه مستطیلی */
+            border-radius: 2px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -83,7 +83,6 @@
             flex-grow: 1;
         }
 
-        /* عنصر خالی برای برقراری تعادل در هدر */
         .header-spacer {
             width: 100px;
         }
@@ -153,7 +152,7 @@
             color: var(--cod-yellow);
             border: 2px solid var(--cod-yellow);
             padding: 10px 24px;
-            border-radius: 2px; /* مستطیلی */
+            border-radius: 2px;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
@@ -185,25 +184,13 @@
             border-color: var(--cod-yellow);
         }
 
-        /* جایگاه عکس */
-        .image-placeholder {
+        /* تگ واقعی عکس با استایل‌های مناسب */
+        .card-img {
             width: 100%;
-            height: 240px;
-            background-color: #1A1A1A;
+            height: 350px;
+            object-fit: cover;
+            display: block;
             border-bottom: 2px solid var(--cod-yellow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--cod-yellow);
-            font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            background-image: linear-gradient(45deg, #151515 25%, transparent 25%), 
-                              linear-gradient(-45deg, #151515 25%, transparent 25%), 
-                              linear-gradient(45deg, transparent 75%, #151515 75%), 
-                              linear-gradient(-45deg, transparent 75%, #151515 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
         }
 
         /* متن چسبیده زیر عکس */
@@ -217,7 +204,7 @@
         .floating-container {
             position: fixed;
             bottom: 20px;
-            left: 20px; /* سمت چپ پایین صفحه */
+            left: 20px;
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -229,7 +216,7 @@
             color: var(--cod-yellow);
             border: 2px solid var(--cod-yellow);
             padding: 12px 25px;
-            border-radius: 50px; /* شکل بیضی کامل */
+            border-radius: 50px;
             font-weight: bold;
             font-size: 0.95rem;
             cursor: pointer;
@@ -247,7 +234,7 @@
             transform: scale(1.05);
         }
 
-        /* --- واکنش‌گرایی برای موبایل (Responsive) --- */
+        /* --- واکنش‌گرایی برای موبایل --- */
         @media (max-width: 600px) {
             header {
                 padding: 12px 15px;
@@ -263,7 +250,7 @@
             }
 
             .header-spacer {
-                display: none; /* حذف فاصله در موبایل برای فضای بیشتر */
+                display: none;
             }
 
             .social-buttons {
@@ -272,6 +259,10 @@
 
             .social-btn {
                 max-width: 100%;
+            }
+
+            .card-img {
+                height: 220px; /* کاهش ارتفاع عکس در موبایل */
             }
 
             .floating-container {
@@ -314,11 +305,9 @@
             </div>
         </div>
 
-        <!-- کارت‌های عکس و متن -->
-        
         <!-- عکس شماره ۱ -->
         <div class="media-card">
-            <div class="image-placeholder">عکس سیزن ۱</div>
+            <img src="./Jkksksksks.jpg" alt="Call of Duty Mobile 1" class="card-img">
             <div class="card-text">
                 متن شما........
             </div>
@@ -326,7 +315,7 @@
 
         <!-- عکس شماره ۲ -->
         <div class="media-card">
-            <div class="image-placeholder">عکس سیزن ۲</div>
+            <img src="./Jajakskkss.jpg" alt="Call of Duty Mobile 2" class="card-img">
             <div class="card-text">
                 متن شما........
             </div>
@@ -334,7 +323,7 @@
 
         <!-- عکس شماره ۳ -->
         <div class="media-card">
-            <div class="image-placeholder">عکس سیزن ۳</div>
+            <img src="./nody--عکس-کال-آف-دیوتی-برای-پروفایل-پس-زمینه-موبایل--1736341819.jpg" alt="Call of Duty Mobile 3" class="card-img">
             <div class="card-text">
                 متن شما........
             </div>
@@ -342,7 +331,7 @@
 
         <!-- عکس شماره ۴ -->
         <div class="media-card">
-            <div class="image-placeholder">عکس سیزن ۴</div>
+            <img src="./9233549d-6a91-41c7-ac3d-2560cf2cf126.png" alt="Call of Duty Mobile 4" class="card-img">
             <div class="card-text">
                 متن شما........
             </div>

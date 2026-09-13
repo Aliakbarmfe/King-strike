@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نت‌زن</title>
+<style>
+body{font-family:Tahoma;background:#07111f;color:white;text-align:center;margin:0;padding:25px}
+h1{color:#20dff5}
+.box{background:#102034;padding:18px;margin:12px auto;border-radius:15px;max-width:350px}
+button{background:#20dff5;border:0;padding:12px 25px;border-radius:10px;font-weight:bold}
+#pay{display:none}
+input{width:90%;padding:12px;margin:8px;border-radius:8px}
+</style>
+</head>
+<body>
+
+<h1>⚡ نت‌زن</h1>
+<p>بسته اینترنت خود را انتخاب کنید</p>
+
+<div class="box"><h2>۱۰ گیگ</h2><p>۳۵٬۰۰۰ تومان</p><button onclick="pay('۱۰ گیگ','۳۵٬۰۰۰')">خرید</button></div>
+<div class="box"><h2>۲۰ گیگ</h2><p>۴۵٬۰۰۰ تومان</p><button onclick="pay('۲۰ گیگ','۴۵٬۰۰۰')">خرید</button></div>
+<div class="box"><h2>۳۰ گیگ</h2><p>۷۵٬۰۰۰ تومان</p><button onclick="pay('۳۰ گیگ','۷۵٬۰۰۰')">خرید</button></div>
+<div class="box"><h2>۴۰ گیگ</h2><p>۱۴۰٬۰۰۰ تومان</p><button onclick="pay('۴۰ گیگ','۱۴۰٬۰۰۰')">خرید</button></div>
+
+<div id="pay" class="box">
+<h2 id="title"></h2>
+<p>شماره کارت:</p>
+<h3 dir="ltr">5041 7210 3898 2840</h3>
+<p>به نام: <b>ابراهیمی</b></p>
+<p>بعد از پرداخت، رسید و شماره موبایل خود را وارد کنید.</p>
+<input type="file" accept="image/*">
+<input type="tel" placeholder="شماره موبایل">
+<br><br>
+<button onclick="done()">ثبت پرداخت</button>
+</div>
+
+<script>
+function pay(pkg,price){
+document.getElementById('title').innerText='پرداخت '+pkg+' - '+price+' تومان';
+document.getElementById('pay').style.display='block';
+document.getElementById('pay').scrollIntoView({behavior:'smooth'});
+}
+function done(){alert('رسید و شماره شما ثبت شد. پس از بررسی، بسته فعال می‌شود.');}
+</script>
+
+</body>
+</html>
